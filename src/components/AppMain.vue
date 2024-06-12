@@ -2,14 +2,10 @@
     <main class="">
         <div class="container">
             <div class="row text-white text-center">
-                <div class="col-12">
-                    <h1>Template Vue + Bootstrap /AntoCic</h1>
-                    <ElmBtnCount btnText="Cliccami" />
-                </div>
                 <div v-for="project in store.projects.data" :key="project.id" class="col-3 p-3">
                     <div class="my-3 text-white border border-opacity-75 rounded-4 bg-white bg-opacity-10 p-2 h-100">
                         <h3>{{ project.name }}</h3>
-                        <p class="color-secondary">{{ project.state }}</p>
+                        <p class="color-sub-title">{{ project.state }}</p>
                         <p class="text-truncate">{{ project.description }}</p>
                         <template v-if="project.type">
                             <span class="badge text-bg-primary me-1">{{ project.type.name }}</span>
@@ -27,9 +23,7 @@
 
 <script>
 import { store } from '../store.js';
-import ElmBtnCount from './ElmBtnCount.vue'
 export default {
-    components: { ElmBtnCount },
     data() {
         return {
             store,
@@ -39,4 +33,8 @@ export default {
 </script>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.color-sub-title{
+    color: rgb(252, 232, 54);
+}
+</style>
