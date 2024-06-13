@@ -3,6 +3,11 @@
     <a href="https://github.com/AntoCic" target="_blank">
       <img src="../assets/img/logo.png" class="logo" alt="Vue logo" />
     </a>
+    <nav class="text-white text-center">
+      <RouterLink to="/" class="btn" :class="$route.fullPath === '/' ? 'btn-light' : 'btn-outline-light'">Home</RouterLink>
+      <RouterLink to="/portfolio" class="btn" :class="$route.fullPath === '/portfolio' ? 'btn-light' : 'btn-outline-light'">Portfolio</RouterLink>
+      <RouterLink to="/contact" class="btn" :class="$route.fullPath === '/contact' ? 'btn-light' : 'btn-outline-light'">Contact</RouterLink>
+    </nav>
   </header>
 </template>
 
