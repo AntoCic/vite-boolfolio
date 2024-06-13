@@ -9,9 +9,6 @@
       </p>
     </div>
   </div>
-  <div class="text-white">
-    <hr>
-  </div>
 </template>
 
 <script>

@@ -13,6 +13,7 @@
                   <span v-for="technology in project.technologies" :key="technology.id"
                      class="badge text-bg-warning text-white me-1">{{ technology.name }}</span>
                </template>
+               <RouterLink :to="{ name: 'project', params: {slug:project.slug} }" class="btn btn-outline-light">project</RouterLink>
             </div>
 
          </div>
@@ -23,17 +24,17 @@
 <script>
 import { store } from '../store.js';
 export default {
-    data() {
-        return {
-            store,
-        }
-    },
+   data() {
+      return {
+         store,
+      }
+   },
 }
 </script>
 
 
 <style lang="scss" scoped>
-.color-sub-title{
-    color: rgb(252, 232, 54);
+.color-sub-title {
+   color: rgb(252, 232, 54);
 }
 </style>

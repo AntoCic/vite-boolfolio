@@ -1,6 +1,8 @@
 <template>
-  <footer class="footer mt-3 py-3">
-    <p class="text-center text-white">Made by AntoCic</p>
+  
+  <footer class="footer text-white mt-3 py-3">
+   <hr>
+    <p class="text-center">Made by AntoCic</p>
   </footer>
 </template>
 
