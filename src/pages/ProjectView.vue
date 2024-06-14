@@ -1,6 +1,6 @@
 <template>
    <div class="container">
-      <div v-if="project.name" class="row text-center">
+      <div v-if="project" class="row text-center">
          <div class="my-3 text-white ">
             <h3>{{ project.slug }}</h3>
             <p class="color-sub-title">{{ project.state }}</p>
@@ -15,24 +15,40 @@
             <p>{{ project.url }}</p>
          </div>
       </div>
-      <p v-else class="text-danger text-center">Errore caricamento torna alla home</p>
    </div>
 </template>
 
 <script>
 import { store } from '../store.js';
+import axios from 'axios'
 export default {
+   props: {
+      slug: {
+         type: String,
+         required: true
+      }
+   },
    data() {
       return {
          store,
-         project: {}
+         project: null
       }
    },
    mounted() {
-      if (this.store.projects.data.length) {
-         this.project = this.store.projects.data.find((e) => { return e.slug === this.$route.params.slug });
-      }
-      console.log(this.project);
+      console.log(this.$route.params.slug);
+      axios.get(`http://127.0.0.1:8000/api/projects/${this.slug}`).then((res) => {
+         console.log(res.data.results);
+         this.project = res.data.results;
+      }).catch((err) => {
+         this.$router.push({
+            name: 'not-found',
+            params: { pathMatch: this.$route.path.substring(1).split('/') },
+         })
+      })
+      // if (this.store.projects.data.length) {
+      //    this.project = this.store.projects.data.find((e) => { return e.slug === this.$route.params.slug });
+      // }
+      // console.log(this.project);
    }
 }
 </script>
